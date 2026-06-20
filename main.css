@@ -1,0 +1,13 @@
+@import url(css/base.css);
+@import url(css/utilities.css);
+@import url(css/variables.css);
+
+@import url(css/component/navbar.css);
+@import url(css/component/hero.css);
+@import url(css/component/fasilitas.css);
+@import url(css/component/gallery.css);
+@import url(css/component/roomcard.css);
+@import url(css/component/testimoni.css);
+@import url(css/component/contact.css);
+@import url(css/component/FAQ.css);
+@import url(css/component/footer.css);

@@ -1,75 +1,576 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kos Wisma Melati &amp; Kos Putri — Hunian Asri, Nyaman di Kantong</title>
+  <meta name="description" content="Wisma Melati Kos dekat kampus UII & Residence — kos asri dengan lingkungan hijau, harga murah, dan suasana hangat seperti rumah sendiri.">
+
+  <!-- ===== Google Fonts ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ===== Stylesheet utama ===== -->
+  <link rel="stylesheet" href="main.css">
+
+  <!-- Favicon sederhana berbentuk daun (emoji sebagai data-uri, opsional diganti file asli) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22> <text y=%22.9em%22 font-size=%2290%22>🌿</text> </svg>">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <h1>LOGO</h1>
-                <ul class="navbar-nav ms-auto">
-                    <li> <a href="#a">Home</a> </li>
-                    <li> <a href="#b">About</a> </li>
-                    <li class="nav-item"> <button id="dark-theme">Dark</button> </li>
-                </ul>
-        </nav>
-    </header>
 
-    <section class="main" id="a">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="content">
-                        <h2>Section a</h2>
-                        <a href="#c">Contact me now</a>
-                        <p>Paragraf 1</p>
-                        <p>Paragraf 2</p>
-                        <p>Paragraf 3</p>
-                        <p>Paragraf 4</p>
-                    </div>
-                </div>
-            </div>
+  <!-- =======================================================
+       SKIP LINK — aksesibilitas untuk pengguna keyboard/pembaca layar
+  ======================================================== -->
+  <a class="skip-link" href="#main-content">Lompat ke konten utama</a>
+
+  <!-- =======================================================
+       NAVBAR — sticky, transparan di atas, padat saat scroll
+  ======================================================== -->
+  <header class="navbar" id="navbar">
+    <nav class="navbar__inner container" aria-label="Navigasi utama">
+      <a href="#hero" class="navbar__brand">
+        <span class="navbar__logo" aria-hidden="true">🌿</span>
+        <span class="navbar__name">Wisma Melati</span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Buka menu navigasi">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+
+      <div class="navbar__menu" id="navMenu">
+
+        <button class="navbar__close" id="navClose" aria-label="Tutup menu navigasi" data-dismiss-target=".navbar__menu">
+          <p>X</p>
+        </button>
+
+        <ul class="navbar__links">
+          <li><a href="#kamar">Tipe Kamar</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <!-- Tombol darkmode toggle -->
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ubah ke mode gelap" aria-pressed="false">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          </button>
+          <a href="#kamar" class="btn btn--primary btn--sm">Booking Sekarang</a>
         </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         1. HERO SECTION
+    ======================================================== -->
+    <section class="hero" id="hero">
+      <!-- Aksen daun dekoratif (signature element) — melayang pelan, murni dekoratif -->
+      <svg class="leaf-accent leaf-accent--1" aria-hidden="true" viewBox="0 0 120 120"><path d="M60 10c30 5 50 30 45 60-25 5-55-5-65-35C36 20 45 12 60 10Z"/></svg>
+      <svg class="leaf-accent leaf-accent--2" aria-hidden="true" viewBox="0 0 120 120"><path d="M60 10c30 5 50 30 45 60-25 5-55-5-65-35C36 20 45 12 60 10Z"/></svg>
+
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Kos Putri · Sleman</p>
+          <h1 class="hero__title">
+            Pulang ke tempat yang <em>asri</em>,<br>
+            seperti rumah sendiri.
+          </h1>
+          <p class="hero__desc">
+            Wisma Melati adalah hunian kos dengan halaman hijau yang sejuk,
+            suasana tenang jauh dari bising kota, dan harga sewa yang tetap
+            ramah di kantong mahasiswa maupun pekerja.
+          </p>
+
+          <div class="hero__cta">
+            <a href="#kamar" class="btn btn--primary">Booking Sekarang</a>
+            <a href="#fasilitas" class="btn btn--ghost">Lihat Fasilitas</a>
+          </div>
+
+          <!-- Statistik singkat / trust signal -->
+          <dl class="hero__stats">
+            <div class="hero__stat">
+              <dt>Mulai dari</dt>
+              <dd>Rp 800rb<span>/bulan</span></dd>
+            </div>
+            <div class="hero__stat">
+              <dt>Lingkungan</dt>
+              <dd>100% Asri<span>&amp; rindang</span></dd>
+            </div>
+            <div class="hero__stat">
+              <dt>Penghuni puas</dt>
+              <dd>50+<span>testimoni baik</span></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__media reveal" aria-hidden="false">
+          <div class="hero__blob">
+            <img src="https://picsum.photos/seed/teratakhijau-hero/640/720" alt="Halaman hijau dan teras Teratak Hijau Kos yang asri dan rindang" loading="eager">
+          </div>
+          <!-- Kartu kecil melayang di atas foto, memberi konteks tambahan -->
+          <div class="hero__floatcard">
+            <span class="hero__floatcard-icon" aria-hidden="true">🍃</span>
+            <div>
+              <strong>Udara Sejuk</strong>
+              <p>Dikelilingi pepohonan rindang</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="main" id="b">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="content">
-                        <h2>Section b</h2>
-                        <p>Paragraf 1</p>
-                        <p>Paragraf 2</p>
-                        <p>Paragraf 3</p>
-                        <p>Paragraf 4</p>
-                    </div>
-                </div>
-            </div>
+    <!-- =======================================================
+         2. TIPE KAMAR & INFORMASI KETERSEDIAAN
+    ======================================================== -->
+    <section class="section" id="kamar">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Tipe Kamar</p>
+          <h2>Pilih kamar yang paling pas untukmu</h2>
+          <p class="section__lead">
+            Semua tipe kamar sudah termasuk akses dapur bersama, Wi-Fi, dan
+            keamanan 24 jam. Ketersediaan kamar diperbarui secara berkala.
+          </p>
         </div>
+
+        <div class="room-grid" id="roomGrid" aria-live="polite">
+          <!-- Kartu kamar akan disisipkan di sini oleh JavaScript -->
+        </div>
+
+        <noscript>
+          <p class="section__lead">Aktifkan JavaScript untuk melihat daftar tipe kamar &amp; ketersediaan secara lengkap, atau hubungi kami langsung via WhatsApp.</p>
+        </noscript>
+      </div>
     </section>
 
-    <section class="main" id="c">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="content">
-                        <h2>Section c</h2>
-                        <p>Paragraf 1</p>
-                        <p>Paragraf 2</p>
-                        <p>Paragraf 3</p>
-                        <p>Paragraf 4</p>
-                    </div>
-                </div>
-            </div>
+    <!-- =======================================================
+         3. FASILITAS UNGGULAN
+    ======================================================== -->
+    <section class="section section--alt" id="fasilitas">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Fasilitas</p>
+          <h2>Semua kebutuhan harian, sudah disiapkan</h2>
+          <p class="section__lead">
+            Fokus saja pada aktivitasmu, biar kami yang urus kenyamanan tempat tinggal.
+          </p>
         </div>
+
+        <div class="facility-grid">
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 8.5c6.5-6 13.5-6 20 0M5 12c4-3.5 10-3.5 14 0M8.3 15.5c2.2-2 5.2-2 7.4 0M12 19h.01"/></svg>
+            </span>
+            <h3>Wi-Fi Up-to 100Mbps</h3>
+            <p>Internet stabil untuk kerja, kuliah, dan rebahan nonton.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 11V6a2 2 0 0 1 2-2h2M4 11h16M4 11v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M8 21v-3M16 21v-3M7 7h.01"/></svg>
+            </span>
+            <h3>Kamar Mandi Bersih</h3>
+            <p>Tersedia kamar mandi bersih untuk setiap lantai.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 17h18M5 17V9l7-5 7 5v8M9 17v-4h6v4"/></svg>
+            </span>
+            <h3>Parkir Luas</h3>
+            <p>Tersedia garasi untuk motor dan carport yang luas.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 21V9a2 2 0 0 1 2-2h2V4h8v3h2a2 2 0 0 1 2 2v12M8 21v-5h8v5M9 9h1M14 9h1"/></svg>
+            </span>
+            <h3>Dapur Bersama</h3>
+            <p>Lengkap dengan kompor gas &amp; kulkas, bisa masak hemat tiap hari.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg>
+            </span>
+            <h3>Keamanan 24 Jam</h3>
+            <p>CCTV aktif 24 Jam di area kos.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v4H4V4Zm0 8h16v8H4v-8Zm4 2v2m4-2v2m4-2v2"/></svg>
+            </span>
+            <h3>Lokasi strategis</h3>
+            <p>Lokasi dekat dengan minimarket, laundry, cafe, gym, bengkel dan lainnya.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V8l6-5 6 5v13M9 21v-6h6v6"/></svg>
+            </span>
+            <h3>Dekat dengan kampus</h3>
+            <p>Berangkat ke kampus UII hanya 2 menit.</p>
+          </div>
+
+          <div class="facility-card reveal">
+            <span class="facility-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2c3 3 5 6 5 9.5A5 5 0 0 1 7 11.5C7 8 9 5 12 2Z"/><path d="M12 22v-7"/></svg>
+            </span>
+            <h3>Fasilitas lainnya</h3>
+            <p>Area taman, ruang tamu, musholla, area jemur dan area laundry.</p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- =======================================================
+         4. GALERI FOTO
+    ======================================================== -->
+    <section class="section" id="galeri">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Galeri</p>
+          <h2>Suasana Wisma Melati dari dekat</h2>
+          <p class="section__lead">Klik foto untuk melihat tampilan lebih besar.</p>
+        </div>
+
+        <!-- Grid galeri — setiap tombol membuka lightbox via script.js -->
+        <div class="gallery-grid" id="galleryGrid">
+          <button class="gallery-item gallery-item--tall reveal" data-full="https://picsum.photos/seed/teratakhijau-1/900/1100" aria-label="Lihat foto teras depan kos">
+            <img src="https://picsum.photos/seed/teratakhijau-1/420/520" alt="Teras depan Teratak Hijau Kos dengan banyak tanaman hijau" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="https://picsum.photos/seed/teratakhijau-2/900/700" aria-label="Lihat foto kamar standar">
+            <img src="https://picsum.photos/seed/teratakhijau-2/420/320" alt="Kamar standar yang bersih dan tertata rapi" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="https://picsum.photos/seed/teratakhijau-3/900/700" aria-label="Lihat foto dapur bersama">
+            <img src="https://picsum.photos/seed/teratakhijau-3/420/320" alt="Dapur bersama dengan peralatan masak lengkap" loading="lazy">
+          </button>
+          <button class="gallery-item gallery-item--tall reveal" data-full="https://picsum.photos/seed/teratakhijau-4/900/1100" aria-label="Lihat foto taman belakang">
+            <img src="https://picsum.photos/seed/teratakhijau-4/420/520" alt="Taman belakang yang asri tempat bersantai penghuni" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="https://picsum.photos/seed/teratakhijau-5/900/700" aria-label="Lihat foto kamar mandi dalam">
+            <img src="https://picsum.photos/seed/teratakhijau-5/420/320" alt="Kamar mandi dalam yang bersih pada tipe kamar Deluxe" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="https://picsum.photos/seed/teratakhijau-6/900/700" aria-label="Lihat foto area parkir">
+            <img src="https://picsum.photos/seed/teratakhijau-6/420/320" alt="Area parkir motor dan mobil yang luas dan tertata" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         5. TESTIMONI
+    ======================================================== -->
+    <section class="section section--alt" id="testimoni">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Testimoni</p>
+          <h2>Kata mereka yang sudah tinggal di sini</h2>
+        </div>
+
+        <!-- Carousel testimoni — kontrol next/prev & dots ditangani script.js -->
+        <div class="testimonial-carousel reveal" id="testimonialCarousel">
+          <div class="testimonial-track" id="testimonialTrack">
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__rating" aria-label="Rating 5 dari 5 bintang">★★★★★</div>
+              <p class="testimonial-card__quote">
+                Suasananya beneran asri, tiap pagi denger burung bukan klakson.
+                Pemilik kosnya juga ramah banget, kayak tinggal sama keluarga sendiri.
+              </p>
+              <div class="testimonial-card__author">
+                <img src="https://picsum.photos/seed/avatar-rani/80/80" alt="" loading="lazy">
+                <div>
+                  <strong>Rani Pratiwi</strong>
+                  <span>Pekerja, menghuni selama 1 tahun</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__rating" aria-label="Rating 5 dari 5 bintang">★★★★★</div>
+              <p class="testimonial-card__quote">
+                Harganya masuk akal banget buat fasilitas selengkap ini.
+                Dapur bersama selalu bersih dan area parkirnya luas, gak pernah rebutan tempat.
+              </p>
+              <div class="testimonial-card__author">
+                <img src="https://picsum.photos/seed/avatar-dimas/80/80" alt="" loading="lazy">
+                <div>
+                  <strong>Dimas Aryanto</strong>
+                  <span>Mahasiswa, menghuni selama 8 bulan</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__rating" aria-label="Rating 4.5 dari 5 bintang">★★★★☆</div>
+              <p class="testimonial-card__quote">
+                Yang paling kerasa itu tenangnya. Pulang kerja capek, sampai kos
+                langsung lega lihat halaman hijau. Recommended buat yang suka suasana rumahan.
+              </p>
+              <div class="testimonial-card__author">
+                <img src="https://picsum.photos/seed/avatar-sinta/80/80" alt="" loading="lazy">
+                <div>
+                  <strong>Sinta Maharani</strong>
+                  <span>Mahasiswa, menghuni selama 2 tahun</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="testimonial-controls">
+            <button class="testimonial-btn" id="testimonialPrev" aria-label="Testimoni sebelumnya">‹</button>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+            <button class="testimonial-btn" id="testimonialNext" aria-label="Testimoni berikutnya">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         6. FAQ
+    ======================================================== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Pertanyaan yang sering ditanyakan</h2>
+        </div>
+
+        <!-- Accordion FAQ — buka/tutup ditangani script.js, default tertutup -->
+        <div class="accordion reveal" id="faqAccordion">
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Apakah ada jam malam atau jam keluar-masuk?</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel">
+              <p>Tidak ada jam malam yang kaku. Pintu gerbang utama dikunci pukul 23.00 WIB demi keamanan bersama, namun penghuni tetap bisa keluar-masuk menggunakan kunci cadangan masing-masing.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Berapa deposit yang perlu disiapkan?</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel">
+              <p>Deposit sebesar satu bulan sewa, dan akan dikembalikan penuh saat penghuni check-out apabila kamar dalam kondisi baik dan tidak ada tunggakan.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Apa saja yang sudah termasuk dalam harga sewa?</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel">
+              <p>Harga sewa sudah termasuk Wi-Fi, listrik dengan batas wajar, air, akses dapur bersama, kebersihan area umum, dan keamanan 24 jam. Tidak ada biaya tersembunyi.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Apakah boleh menerima tamu atau menginap berdua?</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel">
+              <p>Tamu diperbolehkan berkunjung hingga pukul 21.00 WIB di area tamu bersama. Untuk menginap, mohon konfirmasi terlebih dahulu ke pengelola kos demi kenyamanan bersama.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Bagaimana cara booking dan pembayarannya?</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel">
+              <p>Booking bisa dilakukan via WhatsApp atau formulir kontak di halaman ini. Pembayaran sewa dapat dilakukan bulanan atau tahunan melalui transfer bank, dengan bukti pembayaran dikirim ke pengelola.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         7. CONTACT & GMAPS
+    ======================================================== -->
+    <section class="section section--alt" id="kontak">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Kontak</p>
+          <h2>Yuk, survei langsung atau tanya dulu</h2>
+          <p class="section__lead">Tim kami siap bantu jawab pertanyaanmu seputar kamar dan ketersediaan.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Form kontak singkat -->
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="namaInput">Nama Lengkap</label>
+              <input type="text" id="namaInput" name="nama" placeholder="Nama kamu" required>
+            </div>
+
+            <div class="form-group">
+              <label for="kontakInput">No. WhatsApp / Email</label>
+              <input type="text" id="kontakInput" name="kontak" placeholder="08xx-xxxx-xxxx atau email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="pesanInput">Pesan</label>
+              <textarea id="pesanInput" name="pesan" rows="4" placeholder="Saya tertarik dengan Kamar Deluxe, kapan bisa survei lokasi?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block">Kirim Pesan</button>
+
+            <!-- Status pengiriman form, diisi oleh script.js -->
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <!-- Info kontak + peta lokasi -->
+          <div class="contact-info reveal">
+            <ul class="contact-info__list">
+              <li>
+                <span aria-hidden="true">📍</span>
+                <div>
+                  <strong>Alamat</strong>
+                  <p>Jl. Kaliurang KM.14, Umbulmartani,Ngemplak, Sleman, Yogyakarta</p>
+                </div>
+              </li>
+              <li>
+                <span aria-hidden="true">📞</span>
+                <div>
+                  <strong>Telepon / WhatsApp</strong>
+                  <p><a href="https://wa.me/6281234567890">+62 812-3456-7890</a></p>
+                </div>
+              </li>
+              <li>
+                <span aria-hidden="true">✉️</span>
+                <div>
+                  <strong>Email</strong>
+                  <p><a href="mailto:halo@wismamelati.id">halo@wismamelati.id</a></p>
+                </div>
+              </li>
+              <li>
+                <span aria-hidden="true">🕐</span>
+                <div>
+                  <strong>Jam Survei Lokasi</strong>
+                  <p>Setiap hari, 08.00 – 20.00 WIB</p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Placeholder iframe Google Maps — ganti src dengan link embed lokasi asli -->
+            <div class="contact-map">
+              <!-- <iframe
+                src="https://www.google.com/maps/place/Kost+Putri+Muslimah+%22Wisma+Melati%22/@-7.688228,110.4166637,700m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e7a5e98d916ddfb:0x6e5a8a136c3d45f!8m2!3d-7.688228!4d110.419244!16s%2Fg%2F11cfhm94m?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D"
+                title="Lokasi Wisma Melati Kos & Residence di Google Maps"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe> -->
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d226.5319069169541!2d110.41914278639894!3d-7.688315217672298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5e98d916ddfb%3A0x6e5a8a136c3d45f!2sKost%20Putri%20Muslimah%20%22Wisma%20Melati%22!5e1!3m2!1sid!2sid!4v1781957351942!5m2!1sid!2sid" 
+              width="400" 
+              height="300" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+
+      <div class="footer__brand">
+        <a href="#hero" class="navbar__brand">
+          <span class="navbar__logo" aria-hidden="true">🌿</span>
+          <span class="navbar__name">Wisma Melati</span>
+        </a>
+        <p>Hunian kos yang asri, hangat, dan nyaman seperti rumah sendiri.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram Teratak Hijau">IG</a>
+          <a href="#" aria-label="TikTok Teratak Hijau">TT</a>
+          <a href="https://wa.me/6281234567890" aria-label="WhatsApp Teratak Hijau">WA</a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Tautan navigasi footer">
+        <h4>Jelajahi</h4>
+        <ul>
+          <li><a href="#kamar">Tipe Kamar</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Tautan bantuan footer">
+        <h4>Bantuan</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+          <li><a href="https://wa.me/6281234567890">Chat WhatsApp</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h4>Lokasi</h4>
+        <p>Jl. Kaliurang KM.14, Umbulmartani,<br>Ngemplak, Sleman, Yogyakarta</p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© <span id="currentYear"></span>Wisma Melati Kos &amp; Residence. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- =======================================================
+       FLOATING WHATSAPP BUTTON
+  ======================================================== -->
+  <a class="whatsapp-float"
+     href="https://wa.me/6281234567890?text=Halo%20Teratak%20Hijau%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20kamar"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat dengan kami di WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.3.65 4.45 1.78 6.28L4 29l7.9-1.73a11.97 11.97 0 0 0 4.14.74h.01c6.64 0 12.04-5.4 12.04-12.04C28.09 8.4 22.69 3 16.04 3Zm0 21.86h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-4.4.97.93-4.3-.24-.37a9.86 9.86 0 0 1-1.5-5.23c0-5.45 4.44-9.89 9.91-9.89 2.65 0 5.13 1.03 6.99 2.9a9.82 9.82 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.15-.15.34-.34.5-.5.17-.17.22-.3.34-.5.12-.2.06-.37-.04-.52-.1-.15-.5-1.2-.69-1.65-.18-.42-.36-.36-.5-.36-.13 0-.3-.01-.46-.01-.17 0-.43.06-.66.3-.22.24-.86.84-.86 2.03 0 1.2.88 2.36 1 2.52.12.17 1.68 2.57 4.07 3.5 2.39.93 2.39.62 2.82.58.43-.04 1.36-.55 1.55-1.08.2-.54.2-1 .14-1.08-.06-.1-.22-.16-.5-.31Z"/></svg>
+  </a>
+
+  <!-- ===== Lightbox galeri (struktur modal, dikontrol script.js) ===== -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Tutup galeri">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Foto sebelumnya">‹</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="">
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Foto berikutnya">›</button>
+  </div>
+
+  <!-- ===== Script utama ===== -->
+  <script src="script.js"></script>
 </body>
 </html>

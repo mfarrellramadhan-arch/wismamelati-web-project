@@ -1,0 +1,67 @@
+/* ---------- Gallery ---------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+    gap: 1rem;
+  }
+  .gallery-item {
+    border: none;
+    background: none;
+    padding: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+  .gallery-item--tall { grid-row: span 2; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, filter 0.5s ease; }
+  .gallery-item::after {
+    content: '🔍';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    background-color: rgba(46, 71, 52, 0.0);
+    opacity: 0;
+    transition: var(--transition-base);
+  }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-item:hover::after { opacity: 1; background-color: rgba(46, 71, 52, 0.25); }
+  
+  @media (max-width: 980px) {
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 150px; }
+  }
+  @media (max-width: 640px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; }
+    .gallery-item--tall { grid-row: span 2; }
+  }
+  
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    position: fixed; inset: 0;
+    background-color: rgba(20, 24, 18, 0.92);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox__img { max-width: 88vw; max-height: 84vh; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); }
+  .lightbox__close, .lightbox__nav {
+    position: absolute;
+    background-color: rgba(255,255,255,0.12);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 46px; height: 46px;
+    font-size: 1.6rem;
+    display: grid;
+    place-items: center;
+    transition: var(--transition-base);
+  }
+  .lightbox__close:hover, .lightbox__nav:hover { background-color: rgba(255,255,255,0.28); }
+  .lightbox__close { top: 1.5rem; right: 1.5rem; }
+  .lightbox__nav--prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+  .lightbox__nav--next { right: 1.5rem; top: 50%; transform: translateY(-50%); }

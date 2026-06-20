@@ -1,0 +1,55 @@
+/* ---------- Testimonials ---------- */
+.testimonial-carousel { 
+    position: relative; 
+    width: 100%;
+  }
+  
+  .testimonial-track {
+    display: flex;
+    transition: transform 0.45s ease;
+  }
+  
+  .testimonial-card {
+    flex: 0 0 100%;
+  
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    border: 1px solid var(--color-border);
+    text-align: center;
+  
+    box-sizing: border-box;
+  
+    max-width: none;
+    margin-inline: 0;
+  }
+  
+  .testimonial-card__rating { color: var(--color-clay); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 0.15em; }
+  .testimonial-card__quote { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: var(--color-forest); line-height: 1.6; }
+  .testimonial-card__author { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; }
+  .testimonial-card__author img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .testimonial-card__author strong { display: block; font-size: 0.9rem; color: var(--color-forest); }
+  .testimonial-card__author span { font-size: 0.78rem; color: var(--color-text-muted); }
+  
+  .testimonial-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
+  .testimonial-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    font-size: 1.3rem;
+    color: var(--color-forest);
+    display: grid;
+    place-items: center;
+    transition: var(--transition-base);
+  }
+  .testimonial-btn:hover { background-color: var(--color-forest); color: #fff; }
+  .testimonial-dots { display: flex; gap: 0.5rem; }
+  .testimonial-dots button {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-border);
+    transition: var(--transition-base);
+  }
+  .testimonial-dots button.is-active { background-color: var(--color-clay); width: 22px; border-radius: 999px; }

@@ -1,0 +1,109 @@
+/* -----------------------------------------------------------------
+   4. UTILITIES & LAYOUT
+----------------------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  .container--narrow { max-width: 760px; }
+  
+  .section { padding-block: var(--section-padding); }
+  .section--alt { background-color: var(--color-bg-alt); }
+  
+  .section__head { max-width: 640px; margin-bottom: 3rem; }
+  .section__lead { font-size: var(--fs-lead); color: var(--color-text-muted); margin-top: 0.75rem; }
+  
+  /* -----------------------------------------------------------------
+     5. KOMPONEN
+  ----------------------------------------------------------------- */
+  
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base), color var(--transition-base);
+    white-space: nowrap;
+  }
+  .btn--primary {
+    background-color: var(--color-clay);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+  .btn--primary:hover {
+    background-color: var(--color-clay-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .btn--ghost {
+    background-color: transparent;
+    border-color: var(--color-forest);
+    color: var(--color-forest);
+  }
+  .btn--ghost:hover {
+    background-color: var(--color-forest);
+    color: var(--color-text-on-dark);
+    transform: translateY(-2px);
+  }
+  .btn--sm { padding: 0.55rem 1.25rem; font-size: 0.85rem; }
+  .btn--block { width: 100%; }
+  .btn[disabled], .btn--disabled {
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none !important;
+  }
+
+  /* ---------- Floating WhatsApp Button ---------- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem; right: 1.5rem;
+    width: 58px; height: 58px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-lg);
+    z-index: 90;
+    animation: pulse-wa 2.5s ease-in-out infinite;
+    transition: transform var(--transition-base);
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+  .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+  
+  /* -----------------------------------------------------------------
+     6. ANIMASI
+  ----------------------------------------------------------------- */
+  
+  /* Fade-in-up saat elemen discroll ke viewport — class .is-visible
+     ditambahkan oleh IntersectionObserver di script.js */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+  }
+  
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45), var(--shadow-lg); }
+    50% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0), var(--shadow-lg); }
+  }

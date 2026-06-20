@@ -1,0 +1,120 @@
+/* -----------------------------------------------------------------
+   2. CSS VARIABLES — DESIGN TOKENS
+   Semua warna & font terpusat di sini agar mudah diubah di kemudian hari.
+----------------------------------------------------------------- */
+:root {
+    /* --- Palet warna utama (Light mode) --- */
+    --color-cream:        #FAF6EC;   /* broken white / background utama */
+    --color-cream-soft:   #F1EADA;   /* background section alternatif */
+    --color-surface:      #FFFFFF;   /* permukaan kartu */
+    --color-border:       #E4DCC6;   /* garis tepi lembut */
+  
+    --color-forest:       #2E4734;   /* hijau hutan dalam — judul, navbar */
+    --color-forest-700:   #3F5B41;   /* hijau hutan sedikit lebih terang */
+    --color-sage:         #7E9A74;   /* hijau sage — aksen sekunder */
+    --color-sage-light:   #DCE6D0;   /* hijau sage muda — badge/bg lembut */
+  
+    --color-clay:         #C2754A;   /* terracotta hangat — CTA utama */
+    --color-clay-dark:    #A85F39;   /* terracotta untuk hover */
+    --color-clay-light:   #F1DDC9;   /* terracotta muda — badge hangat */
+  
+    --color-text:          #33312A;  /* teks utama, hitam kehangatan */
+    --color-text-muted:    #6E6B5E;  /* teks sekunder */
+    --color-text-on-dark:  #F5F1E6;  /* teks di atas latar gelap */
+  
+    --color-bg:            var(--color-cream);
+    --color-bg-alt:        var(--color-cream-soft);
+    --color-success:       #5C8A5C;
+    --color-danger:        #B6573F;
+  
+    /* --- Tipografi --- */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+    /* --- Skala ukuran font (clamp = responsif otomatis) --- */
+    --fs-h1: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
+    --fs-h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+    --fs-h3: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+    --fs-body: 1rem;
+    --fs-lead: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+    --fs-small: 0.875rem;
+  
+    /* --- Spacing & layout --- */
+    --container-width: 1180px;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 28px;
+    --section-padding: clamp(3.5rem, 3rem + 3vw, 6rem);
+  
+    /* --- Bayangan (shadow) hangat, bukan abu-abu netral --- */
+    --shadow-sm: 0 2px 10px rgba(61, 49, 25, 0.06);
+    --shadow-md: 0 12px 30px rgba(61, 49, 25, 0.10);
+    --shadow-lg: 0 24px 60px rgba(61, 49, 25, 0.16);
+  
+    /* --- Transisi standar --- */
+    --transition-base: 0.3s ease;
+  }
+  
+  /* --- Palet warna Dark Mode ---*/
+
+  html[data-theme="dark"] {
+    --color-cream:        #1C231C;
+    --color-cream-soft:   #232B22;
+    --color-surface:      #28312A;
+    --color-border:       #3A4537;
+  
+    --color-forest:       #BFD4B6;   
+    --color-forest-700:   #A8C49C;
+    --color-sage:         #9DBB91;
+    --color-sage-light:   #34402F;
+  
+    --color-clay:         #E0986A;
+    --color-clay-dark:    #EAB084;
+    --color-clay-light:   #3E2F23;
+  
+    --color-text:          #ECE7D8;
+    --color-text-muted:    #B6B2A0;
+    --color-text-on-dark:  #ECE7D8;
+  
+    --color-bg:            var(--color-cream);
+    --color-bg-alt:        var(--color-cream-soft);
+  
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+  
+  /* -----------------------------------------------------------------
+     3. TIPOGRAFI
+  ----------------------------------------------------------------- */
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    color: var(--color-forest);
+    line-height: 1.15;
+    font-weight: 600;
+  }
+  
+  h1 { font-size: var(--fs-h1); }
+  h2 { font-size: var(--fs-h2); }
+  h3 { font-size: var(--fs-h3); }
+  
+  h1 em, .hero__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-clay);
+  }
+  
+  p { line-height: 1.7; color: var(--color-text); }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-clay-dark);
+    margin-bottom: 0.75rem;
+  }
+  html[data-theme="dark"] .eyebrow { color: var(--color-clay); }
