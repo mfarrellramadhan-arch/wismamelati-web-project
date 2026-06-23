@@ -1,10 +1,10 @@
-# Wisma Melati Web Project
+# Wisma Melati Website
 
 Website untuk kebutuhan kos Wisma Melati - platform informasi dan manajemen online untuk penghuni dan pemilik kos.
 
 ## 📋 Deskripsi Proyek
 
-Wisma Melati Web Project adalah aplikasi web yang dirancang untuk memudahkan pengelolaan dan penyediaan informasi tentang fasilitas kos Wisma Melati. Website ini menyediakan interface yang user-friendly untuk menampilkan informasi kamar, harga, fasilitas, dan kontak.
+Wisma Melati Website adalah aplikasi web yang dirancang untuk memudahkan pengelolaan dan penyediaan informasi tentang fasilitas kos Wisma Melati. Website ini menyediakan interface yang user-friendly untuk menampilkan informasi kamar, harga, fasilitas, dan kontak.
 
 ## 🛠️ Teknologi yang Digunakan
 
