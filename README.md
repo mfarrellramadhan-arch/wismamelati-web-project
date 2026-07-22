@@ -1,81 +1,145 @@
-# Wisma Melati Website
+# 🏡 Wisma Melati Website
 
-Website untuk kebutuhan kos Wisma Melati - platform informasi dan manajemen online untuk penghuni dan pemilik kos.
+A modern boarding house website designed to provide information about **Wisma Melati** while helping property owners showcase rooms, facilities, and contact information through a responsive and user-friendly interface.
 
-## 📋 Deskripsi Proyek
+---
 
-Wisma Melati Website adalah aplikasi web yang dirancang untuk memudahkan pengelolaan dan penyediaan informasi tentang fasilitas kos Wisma Melati. Website ini menyediakan interface yang user-friendly untuk menampilkan informasi kamar, harga, fasilitas, dan kontak.
+## 📖 About the Project
 
-## 🛠️ Teknologi yang Digunakan
+The **Wisma Melati Website** is a static frontend web application built to improve the online presence of Wisma Melati Boarding House. It allows prospective tenants to explore room information, facilities, pricing, and contact details in a clean and responsive interface.
 
-- **HTML** (37.3%) - Struktur konten halaman
-- **CSS** (42.1%) - Styling dan desain responsif
-- **JavaScript** (20.6%) - Interaktivitas dan fungsionalitas dinamis
+This project was developed with a focus on responsive design, user experience, and modern frontend development practices.
 
-## 📁 Struktur Proyek
+---
 
-```
+## 🚀 Features
+
+* 🏠 Boarding house overview
+* 🛏️ Room gallery
+* 💰 Room pricing information
+* 🏢 Facilities showcase
+* 📞 Contact section for inquiries
+* 📱 Fully responsive design for desktop, tablet, and mobile devices
+* ✨ Smooth scrolling and interactive UI animations
+
+---
+
+## 🛠️ Built With
+
+* **HTML5** – Page structure
+* **CSS3** – Styling, layout, and responsive design
+* **JavaScript (ES6+)** – Interactive functionality and dynamic behavior
+
+### Language Statistics
+
+* HTML — **37.3%**
+* CSS — **42.1%**
+* JavaScript — **20.6%**
+
+---
+
+## 📁 Project Structure
+
+```text
 wismamelati-web-project/
-├── index.html          # Halaman utama
-├── css/                # File stylesheet
-├── js/                 # File JavaScript
-├── assets/             # Gambar dan media lainnya
-└── README.md           # Dokumentasi proyek
+├── index.html          # Main entry point
+├── css/                # Stylesheets
+├── js/                 # JavaScript files
+├── assets/             # Images, icons, and other static assets
+└── README.md           # Project documentation
 ```
 
-## ✨ Fitur Utama
+---
 
-- Tampilan informasi kos Wisma Melati
-- Galeri kamar tersedia
-- Informasi harga dan fasilitas
-- Formulir kontak untuk calon penghuni
-- Desain responsif untuk berbagai ukuran perangkat
+## ⚙️ Getting Started
 
-## 🚀 Cara Memulai
+### Prerequisites
 
-### Prasyarat
-- Browser web modern (Chrome, Firefox, Safari, Edge)
-- Text editor (VS Code, Sublime Text, dll)
+Before running this project, make sure you have:
 
-### Instalasi
+* A modern web browser (Google Chrome, Firefox, Microsoft Edge, or Safari)
+* A code editor such as Visual Studio Code (recommended)
 
-1. Clone repository ini:
+---
+
+## 📥 Installation
+
+Clone the repository:
+
 ```bash
 git clone https://github.com/mfarrellramadhan-arch/wismamelati-web-project.git
 ```
 
-2. Navigasi ke folder proyek:
+Navigate to the project directory:
+
 ```bash
 cd wismamelati-web-project
 ```
 
-3. Buka file `index.html` di browser Anda:
-```bash
-# Atau gunakan Live Server di VS Code
-```
+Open the project:
 
-## 📝 Cara Penggunaan
-
-Buka `index.html` di browser untuk mengakses website. Navigasi melalui halaman untuk melihat informasi tentang kos Wisma Melati, kamar yang tersedia, dan fasilitas yang ditawarkan.
-
-## 🤝 Kontribusi
-
-Kontribusi dipersilakan! Jika Anda memiliki saran atau ingin melakukan perbaikan:
-
-1. Fork repository ini
-2. Buat branch fitur (`git checkout -b feature/NamaFitur`)
-3. Commit perubahan Anda (`git commit -m 'Menambah NamaFitur'`)
-4. Push ke branch (`git push origin feature/NamaFitur`)
-5. Buat Pull Request
-
-## 📧 Kontak
-
-Untuk pertanyaan atau informasi lebih lanjut tentang Wisma Melati, silakan hubungi melalui website atau kontak yang tersedia.
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE untuk detail.
+* Open `index.html` directly in your browser, **or**
+* Run the project using the **Live Server** extension in Visual Studio Code.
 
 ---
 
-**Dibuat dengan ❤️ untuk Wisma Melati**
+## 💡 Usage
+
+After launching the website, users can:
+
+* Browse available rooms
+* View facilities and amenities
+* Check pricing information
+* Explore the property gallery
+* Contact the boarding house owner through the provided contact section
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+If you would like to improve this project:
+
+1. Fork the repository.
+2. Create a new feature branch.
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+3. Commit your changes.
+
+```bash
+git commit -m "Add your feature"
+```
+
+4. Push the branch.
+
+```bash
+git push origin feature/your-feature-name
+```
+
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+See the `LICENSE` file for more information.
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Farrell Ramadhan**
+
+GitHub: https://github.com/mfarrellramadhan-arch
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub. It helps others discover the project and motivates future improvements.
