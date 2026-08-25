@@ -269,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Carousel sederhana berbasis transform translateX, lengkap
      dengan tombol prev/next dan indikator dot.
   --------------------------------------------------------------- */
+  const testimonialCarousel = document.getElementById('testimonialCarousel');
   const testimonialTrack = document.getElementById('testimonialTrack');
   const testimonialSlides = Array.from(testimonialTrack.children);
   const testimonialDotsWrap = document.getElementById('testimonialDots');
@@ -285,22 +286,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const testimonialDots = Array.from(testimonialDotsWrap.children);
 
-  function goToTestimonial(index) {
-    testimonialIndex = (index + testimonialSlides.length) % testimonialSlides.length;
-    testimonialTrack.style.transform = `translateX(-${testimonialIndex * 100}%)`;
-    testimonialDots.forEach((dot, i) => dot.classList.toggle('is-active', i === testimonialIndex));
+  function getTestimonialGap() {
+    const styles = getComputedStyle(testimonialTrack);
+    return parseFloat(styles.columnGap || styles.gap) || 0;
   }
-  goToTestimonial(0); // inisialisasi tampilan & dot pertama
 
-  testimonialPrevBtn.addEventListener('click', () => goToTestimonial(testimonialIndex - 1));
-  testimonialNextBtn.addEventListener('click', () => goToTestimonial(testimonialIndex + 1));
+  function goToTestimonial(index) {
+    const totalSlides = testimonialSlides.length;
+    if (totalSlides === 0) return;
+
+    testimonialIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+
+    const gap = getTestimonialGap();
+    const slideWidth = testimonialSlides[0]?.getBoundingClientRect().width || 0;
+    const carouselWidth = testimonialCarousel.getBoundingClientRect().width;
+    const step = slideWidth + gap;
+    const offset = testimonialIndex * step - (carouselWidth - slideWidth) / 2;
+
+    testimonialTrack.style.transform = `translateX(${-offset}px)`;
+
+    testimonialDots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === testimonialIndex);
+    });
+  }
+
+  goToTestimonial(0);
+
+  function startAutoplay() {
+    clearInterval(testimonialAutoplay);
+    testimonialAutoplay = setInterval(() => goToTestimonial(testimonialIndex + 1), 6000);
+  }
+
+  testimonialNextBtn.addEventListener('click', () => {
+    goToTestimonial(testimonialIndex + 1);
+  });
+
+  testimonialPrevBtn.addEventListener('click', () => {
+    goToTestimonial(testimonialIndex - 1);
+  });
+
+  window.addEventListener('resize', () => goToTestimonial(testimonialIndex));
 
   // Auto-rotate testimoni setiap 6 detik, berhenti sejenak saat pengguna berinteraksi
   let testimonialAutoplay = setInterval(() => goToTestimonial(testimonialIndex + 1), 6000);
-  const testimonialCarousel = document.getElementById('testimonialCarousel');
   testimonialCarousel.addEventListener('mouseenter', () => clearInterval(testimonialAutoplay));
-  testimonialCarousel.addEventListener('mouseleave', () => {
-    testimonialAutoplay = setInterval(() => goToTestimonial(testimonialIndex + 1), 6000);
+  testimonialCarousel.addEventListener('mouseleave', startAutoplay);
   });
 
   /* ---------------------------------------------------------------
@@ -362,11 +392,3 @@ document.addEventListener('DOMContentLoaded', () => {
      9. UTIL KECIL — tahun berjalan otomatis di footer
   --------------------------------------------------------------- */
   document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-});
-
-  /* ---------------------------------------------------------------
-     10.
-  --------------------------------------------------------------- */
-
-

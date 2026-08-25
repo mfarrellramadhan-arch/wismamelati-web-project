@@ -2,15 +2,17 @@
 .testimonial-carousel { 
     position: relative; 
     width: 100%;
+    overflow: hidden;
   }
   
   .testimonial-track {
     display: flex;
+    gap: 1.25rem;
     transition: transform 0.45s ease;
   }
   
   .testimonial-card {
-    flex: 0 0 100%;
+    flex: 0 0 min(680px, 82%);
   
     background-color: var(--color-surface);
     border-radius: var(--radius-lg);
@@ -19,17 +21,31 @@
     text-align: center;
   
     box-sizing: border-box;
-  
-    max-width: none;
-    margin-inline: 0;
   }
   
   .testimonial-card__rating { color: var(--color-clay); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 0.15em; }
   .testimonial-card__quote { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: var(--color-forest); line-height: 1.6; }
-  .testimonial-card__author { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; }
-  .testimonial-card__author img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+
+  .testimonial-card__author {
+    position: relative;
+    margin-top: 1.5rem;
+    min-height: 48px;
+    text-align: center;
+  }
+
+  .testimonial-card__author img {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   .testimonial-card__author strong { display: block; font-size: 0.9rem; color: var(--color-forest); }
-  .testimonial-card__author span { font-size: 0.78rem; color: var(--color-text-muted); }
+  .testimonial-card__author span { display: block; font-size: 0.78rem; color: var(--color-text-muted); }
   
   .testimonial-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
   .testimonial-btn {
@@ -43,6 +59,7 @@
     place-items: center;
     transition: var(--transition-base);
   }
+
   .testimonial-btn:hover { background-color: var(--color-forest); color: #fff; }
   .testimonial-dots { display: flex; gap: 0.5rem; }
   .testimonial-dots button {
@@ -52,4 +69,5 @@
     background-color: var(--color-border);
     transition: var(--transition-base);
   }
+  
   .testimonial-dots button.is-active { background-color: var(--color-clay); width: 22px; border-radius: 999px; }
